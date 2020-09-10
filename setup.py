@@ -38,11 +38,6 @@ Download
 version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]',
                     read('pygsheets/__init__.py'), re.MULTILINE).group(1)
 
-if sys.version_info[0] < 3:
-    install_require = ['google-api-python-client>=1.5.5', 'enum34', 'google-auth-oauthlib']
-else:
-    install_require = ['google-api-python-client>=1.5.5', 'google-auth-oauthlib', 'oauth2client']
-
 setup(
     name='pygsheets',
     packages=['pygsheets'],
@@ -52,7 +47,7 @@ setup(
     author_email='imnmfotmal@gmail.com',
     url='https://github.com/nithinmurali/pygsheets',
     keywords=['spreadsheets', 'google-spreadsheets', 'pygsheets'],
-    install_requires=install_require,
+    install_requires=['google-api-python-client>=1.5.5', 'google-auth-oauthlib', 'oauth2client'],
     extras_require={'pandas': ['pandas>=0.14.0']},
     download_url='https://github.com/nithinmurali/pygsheets/tarball/'+version,
     include_package_data=True,
